@@ -27,9 +27,9 @@ class OnBoardingScreen extends StatefulWidget
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   List<OnBoarding> boarding=[
-    OnBoarding(image: 'assets/images/onboard1.jpg', title: 'screen Title 1', body: 'screen body 1'),
-    OnBoarding(image: 'assets/images/onboard2.png', title: 'screen Title 2', body: 'screen body 2'),
-    OnBoarding(image: 'assets/images/onboard3.jpg', title: 'screen Title 3', body: 'screen body 3'),
+    OnBoarding(image: 'assets/images/onboard1.jpg', title: 'View Items', body: 'you can view all products in our store from any where'),
+    OnBoarding(image: 'assets/images/sale.jpg', title: 'Sale', body: 'you can view sales in our store'),
+    OnBoarding(image: 'assets/images/favorite.jpg', title: 'Favorite Items', body: 'you can add any product to favorite and view them'),
 
   ];
   var pageController=PageController();
