@@ -158,7 +158,6 @@ emit(ChangeFavoriteErrorState());
       url: PROFILE,
       token: token,
     ).then((value) {
-      print(value.data);
       user=LoginModel.fromJson(value.data);
       emit(GetUserSuccessState(user));
     }).catchError((error){
