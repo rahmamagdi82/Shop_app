@@ -18,19 +18,13 @@ class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ShopCubit, ShopStates>(
-      listener: (BuildContext context, state) {
-        if (state is GetUserSuccessState) {
-          nameController.text = state.user.data.name;
-          emailController.text = state.user.data.email;
-          phoneController.text = state.user.data.phone;
-        }
-      },
+      listener: (BuildContext context, state) {},
       builder: (BuildContext context, Object? state) {
-        LoginModel user=ShopCubit.get(context).user;
-        nameController.text = user.data.name;
-        emailController.text = user.data.email;
-        phoneController.text = user.data.phone;
-        print(user.data.email);
+         LoginModel userInfo=ShopCubit.get(context).user;
+         nameController.text = userInfo.data.name;
+         emailController.text = userInfo.data.email;
+         phoneController.text = userInfo.data.phone;
+        print(userInfo.data.email);
         return Center(
           child: SingleChildScrollView(
             child: ConditionalBuilder(
@@ -46,7 +40,7 @@ class Setting extends StatelessWidget {
                         const SizedBox(
                           height: 30.0,
                         ),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value) {
                             if (value!.isEmpty) {
                               return 'name must be not empty';
@@ -56,13 +50,13 @@ class Setting extends StatelessWidget {
                           },
                           control: nameController,
                           type: TextInputType.name,
-                          lable: 'User Name',
+                          label: 'User Name',
                           prefix: Icons.person,
                         ),
                         const SizedBox(
                           height: 15.0,
                         ),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value) {
                             if (value!.isEmpty) {
                               return 'email must be not empty';
@@ -72,13 +66,13 @@ class Setting extends StatelessWidget {
                           },
                           control: emailController,
                           type: TextInputType.emailAddress,
-                          lable: 'Email Address',
+                          label: 'Email Address',
                           prefix: Icons.email,
                         ),
                         const SizedBox(
                           height: 15.0,
                         ),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value) {
                             if (value!.isEmpty) {
                               return 'phone must be not empty';
@@ -88,13 +82,13 @@ class Setting extends StatelessWidget {
                           },
                           control: phoneController,
                           type: TextInputType.phone,
-                          lable: 'Phone',
+                          label: 'Phone',
                           prefix: Icons.phone,
                         ),
                         const SizedBox(
                           height: 30.0,
                         ),
-                        defultButton(
+                        defaultButton(
                           uperCase: true,
                           function: () {
                             if (formKey.currentState!.validate()) {
@@ -110,7 +104,7 @@ class Setting extends StatelessWidget {
                         const SizedBox(
                           height: 30.0,
                         ),
-                        defultButton(
+                        defaultButton(
                             uperCase: true,
                             function: () {
                               CashHelper.removeData(key: 'token').then((value) {
@@ -120,7 +114,6 @@ class Setting extends StatelessWidget {
                               });
                             },
                             text: "sign out"),
-
                       ],
                     ),
                   ),

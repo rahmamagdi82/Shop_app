@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shop_app/models/home_models.dart';
 import 'package:shop_app/shared/components/cubit/cubit.dart';
 import 'package:shop_app/shared/style/colors.dart';
 
-Widget defultTextFormFeild({
+Widget defaultTextFormField({
   required String? Function(String?) validate,
   required TextEditingController control,
   required TextInputType type,
   bool obscure =false,
-  required String lable,
+  required String label,
   required IconData prefix,
   IconData? suffix,
   VoidCallback? show,
@@ -25,7 +24,7 @@ Widget defultTextFormFeild({
   onChanged: change,
   onFieldSubmitted: submit,
   decoration: InputDecoration(
-    labelText: lable,
+    labelText: label,
     prefixIcon: Icon(prefix),
     suffixIcon: (suffix==null)?null:IconButton(
       onPressed: show,
@@ -50,7 +49,7 @@ Future navigationAndFinish(context,widget)=>Navigator.pushAndRemoveUntil(
   }
 );
 
-Widget defultButton({
+Widget defaultButton({
   required VoidCallback function,
   required String text,
   bool uperCase=false,
@@ -80,10 +79,10 @@ child: Text(
 //succes->green
 //worning->amber
 void toast({
-  required String message,
+   required String? message,
   Color? color=Colors.amber,
 })=>Fluttertoast.showToast(
-    msg: message,
+    msg: "${message}",
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 5,
@@ -92,7 +91,7 @@ void toast({
     fontSize: 16.0
 );
 
-String token='';
+String? token='';
 
 Widget myDivider()=> Padding(
   padding: const EdgeInsets.symmetric(horizontal: 25.0),

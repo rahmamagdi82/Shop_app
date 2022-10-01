@@ -2,7 +2,7 @@ class LoginModel
 {
   LoginModel();
   late bool status;
-  late String message;
+   late String? message;
    UserModel data=UserModel();
 
   LoginModel.fromJson(Map<String,dynamic> json)

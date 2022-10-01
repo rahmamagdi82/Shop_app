@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/modules/search/search_cubit/cubit.dart';
 import 'package:shop_app/modules/search/search_cubit/states.dart';
 import 'package:shop_app/shared/components/comonents.dart';
-import 'package:shop_app/shared/style/colors.dart';
 
 
 class Search extends StatelessWidget
@@ -23,7 +22,7 @@ class Search extends StatelessWidget
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  defultTextFormFeild(
+                  defaultTextFormField(
                       validate: (value){
                         if(value!.isEmpty){
                           return 'search must be not empty';
@@ -34,7 +33,7 @@ class Search extends StatelessWidget
                       },
                       control: searchController,
                       type: TextInputType.text,
-                      lable: 'Search',
+                      label: 'Search',
                       prefix: Icons.search,
                       submit: (value){
                         SearchCubit.get(context).getSearch(text: value);

@@ -17,9 +17,9 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.initial();
   await CashHelper.initial();
-  bool skip=CashHelper.getData(key: 'isSkip');
+  bool? skip;
+  skip=CashHelper.getData(key: 'isSkip');
   token=CashHelper.getData(key: 'token');
-  print(token);
   BlocOverrides.runZoned(
         () {
           if(skip != null)

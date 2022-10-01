@@ -66,7 +66,7 @@ class Login extends StatelessWidget
                           ),
                         ),
                         const SizedBox(height: 30.0,),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value){
                             if(value!.isEmpty){
                               return 'email must be not null';
@@ -77,11 +77,11 @@ class Login extends StatelessWidget
                           },
                           control: emailController,
                           type: TextInputType.emailAddress,
-                          lable: 'Email Address',
+                          label: 'Email Address',
                           prefix: Icons.email,
                         ),
                         const SizedBox(height: 15.0,),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value){
                             if(value!.isEmpty){
                               return 'password must be not null';
@@ -92,7 +92,7 @@ class Login extends StatelessWidget
                           },
                           control: passwordController,
                           type: TextInputType.visiblePassword,
-                          lable: 'Password',
+                          label: 'Password',
                           prefix: Icons.lock,
                           suffix: LoginCubit.get(context).icon,
                           submit: (value){
@@ -111,7 +111,7 @@ class Login extends StatelessWidget
                         const SizedBox(height: 30.0,),
                         ConditionalBuilder(
                           condition: state is! LoginLoadingState,
-                          builder:(context)=> defultButton(
+                          builder:(context)=> defaultButton(
                             uperCase: true,
                             function: (){
                               if(formKey.currentState!.validate()){

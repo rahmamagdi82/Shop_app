@@ -35,7 +35,6 @@ class Register extends StatelessWidget
               });
             }else
             {
-              print(state.RegisterModel.message);
               toast(
                 message: state.RegisterModel.message,
                 color: Colors.red,
@@ -68,7 +67,7 @@ class Register extends StatelessWidget
                           ),
                         ),
                         const SizedBox(height: 30.0,),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value){
                             if(value!.isEmpty){
                               return 'please enter your name';
@@ -79,11 +78,11 @@ class Register extends StatelessWidget
                           },
                           control: nameController,
                           type: TextInputType.name,
-                          lable: 'User Name',
+                          label: 'User Name',
                           prefix: Icons.person,
                         ),
                         const SizedBox(height: 15.0,),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value){
                             if(value!.isEmpty){
                               return 'please enter your email';
@@ -94,11 +93,11 @@ class Register extends StatelessWidget
                           },
                           control: emailController,
                           type: TextInputType.emailAddress,
-                          lable: 'Email Address',
+                          label: 'Email Address',
                           prefix: Icons.email,
                         ),
                         const SizedBox(height: 15.0,),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value){
                             if(value!.isEmpty){
                               return 'please enter your password';
@@ -109,7 +108,7 @@ class Register extends StatelessWidget
                           },
                           control: passwordController,
                           type: TextInputType.visiblePassword,
-                          lable: 'Password',
+                          label: 'Password',
                           prefix: Icons.lock,
                           suffix: RegisterCubit.get(context).icon,
                           obscure: RegisterCubit.get(context).obsecure,
@@ -118,7 +117,7 @@ class Register extends StatelessWidget
                           },
                         ),
                         const SizedBox(height: 15.0,),
-                        defultTextFormFeild(
+                        defaultTextFormField(
                           validate: (value){
                             if(value!.isEmpty){
                               return 'please enter your phone';
@@ -129,13 +128,13 @@ class Register extends StatelessWidget
                           },
                           control: phoneController,
                           type: TextInputType.phone,
-                          lable: 'Phone',
+                          label: 'Phone',
                           prefix: Icons.phone,
                         ),
                         const SizedBox(height: 30.0,),
                         ConditionalBuilder(
                           condition: state is! RegisterLoadingState,
-                          builder:(context)=> defultButton(
+                          builder:(context)=> defaultButton(
                             uperCase: true,
                             function: (){
                               if(formKey.currentState!.validate()){
@@ -146,9 +145,7 @@ class Register extends StatelessWidget
                                   phone: phoneController.text,
                                 );
                               }
-
-                              //navigation(context, widget),
-                            },
+                              },
                             text: 'Register',
                           ),
                           fallback:(context)=> const Center(child: CircularProgressIndicator()),
