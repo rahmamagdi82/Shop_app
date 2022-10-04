@@ -25,7 +25,7 @@ class Register extends StatelessWidget
       child: BlocConsumer<RegisterCubit,RegisterStates>(
         listener: (BuildContext context, state) {
           if(state is RegisterSuccessState){
-            if(state.RegisterModel.status){
+            if(state.RegisterModel.status!){
               CashHelper.putData(key: 'token', value: state.RegisterModel.data.token).then((value) {
                 token=state.RegisterModel.data.token;
                 ShopCubit.get(context).getUser();
@@ -36,7 +36,7 @@ class Register extends StatelessWidget
             }else
             {
               toast(
-                message: state.RegisterModel.message,
+                message: state.RegisterModel.message!,
                 color: Colors.red,
               );
             }

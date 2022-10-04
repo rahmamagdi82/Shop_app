@@ -24,7 +24,7 @@ class Login extends StatelessWidget
       child: BlocConsumer<LoginCubit,LoginStates>(
         listener: (BuildContext context, state) {
           if(state is LoginSuccessState){
-            if(state.loginModel.status){
+            if(state.loginModel.status!){
               CashHelper.putData(key: 'token', value: state.loginModel.data.token).then((value) {
                 token=state.loginModel.data.token;
                 ShopCubit.get(context).getUser();
@@ -35,7 +35,7 @@ class Login extends StatelessWidget
             }else
               {
                 toast(
-                    message: state.loginModel.message,
+                    message: state.loginModel.message!,
                 color: Colors.red,
                 );
               }

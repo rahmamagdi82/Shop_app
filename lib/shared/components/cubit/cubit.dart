@@ -186,6 +186,7 @@ emit(ChangeFavoriteErrorState());
       },
     ).then((value) {
       updateUserdata=LoginModel.fromJson(value.data);
+      getUser();
       emit(UpdateUserSuccessState(updateUserdata));
     }).catchError((error){
       emit(UpdateUserErrorState());

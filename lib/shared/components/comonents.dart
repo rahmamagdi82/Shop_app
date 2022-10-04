@@ -79,7 +79,7 @@ child: Text(
 //succes->green
 //worning->amber
 void toast({
-   required String? message,
+   required String message,
   Color? color=Colors.amber,
 })=>Fluttertoast.showToast(
     msg: "${message}",

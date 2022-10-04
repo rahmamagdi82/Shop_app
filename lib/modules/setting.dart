@@ -19,12 +19,11 @@ class Setting extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ShopCubit, ShopStates>(
       listener: (BuildContext context, state) {},
-      builder: (BuildContext context, Object? state) {
+      builder: (BuildContext context, state) {
          LoginModel userInfo=ShopCubit.get(context).user;
-         nameController.text = userInfo.data.name;
-         emailController.text = userInfo.data.email;
-         phoneController.text = userInfo.data.phone;
-        print(userInfo.data.email);
+         nameController.text = userInfo.data.name!;
+         emailController.text = userInfo.data.email!;
+         phoneController.text = userInfo.data.phone!;
         return Center(
           child: SingleChildScrollView(
             child: ConditionalBuilder(

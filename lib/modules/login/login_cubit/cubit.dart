@@ -32,7 +32,6 @@ void changeShowPassword()
       "password":password,
     }).then((value) {
       user=LoginModel.fromJson(value.data);
-      print(user.data.token);
       emit(LoginSuccessState(user));
     }).catchError((error){
       emit(LoginErrorState(error.toString()));
